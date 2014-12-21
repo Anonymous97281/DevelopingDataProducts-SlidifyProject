@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mortgage Monthly Payment Calculator</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Mortgage Monthly Payment Calculator">
+  <meta name="author" content="Anonymous97281">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Mortgage Monthly Payment Calculator</h1>
+    <h2>Project for Developing Data Products Course</h2>
+    <p>Anonymous97281<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Mortgage monthly payment calculation is a very commonly needed task for lots of people interested in buying or refinancing their home. This application helps such users do the calculation quickly and accurately.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Application Inputs</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The application takes primarily 3 inputs to calculate the monthly amount.</p>
+
+<ol>
+<li><p>The loan/principal amount</p>
+
+<p>a. The loan amount can be any numeric value between 0 and 100,000,00</p></li>
+<li><p>The loan term in years</p>
+
+<p>a. The loan term can have 5 possible values of 5, 10, 15, 20, 30.</p></li>
+<li><p>The loan interest rate</p>
+
+<p>a. The loan interest rate can have values from 1 to 15 in increments of 0.5.</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Formula used in the Calculation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The formula used for calculating the monthly mortgage amount is as below</p>
+
+<p>amount = loan * (1 + i)^ n/((1 + i)^ n - 1)<br>
+where<br>
+loan = loan amount<br>
+i = interest rate per month (yearly interest rate / 12)<br>
+n = loan term in number of months<br>
+^ = implies power of.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Example</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Let us take an example for this where<br>
+loan = 100000<br>
+interest rate = 5%<br>
+term = 30 years  </p>
+
+<pre><code class="r">niLoanAmt &lt;- 100000
+niLoanTermYears &lt;- 30
+siLoanInterest &lt;- 5
+
+months &lt;- as.numeric(niLoanTermYears) * 12
+yearlyInterest &lt;- as.numeric(siLoanInterest)
+monthlyInterest &lt;- yearlyInterest / 12 / 100
+loanAmt &lt;- as.numeric(niLoanAmt)
+tmp1 &lt;- (1 + monthlyInterest)^months
+monthlyMortgage &lt;- loanAmt * (monthlyInterest * tmp1)/ (tmp1 - 1)
+
+monthlyMortgage
+</code></pre>
+
+<pre><code>## [1] 536.8216
+</code></pre>
+
+<hr>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Application Inputs'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Formula used in the Calculation'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Example'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
