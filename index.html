@@ -99,21 +99,17 @@ n = loan term in number of months<br>
   </hgroup>
   <article data-timings="">
     <p>Let us take an example for this where<br>
-loan = 100000<br>
-interest rate = 5%<br>
+loan = 100000,<br>
+interest rate = 5%,<br>
 term = 30 years  </p>
 
-<pre><code class="r">niLoanAmt &lt;- 100000
-niLoanTermYears &lt;- 30
-siLoanInterest &lt;- 5
-
+<pre><code class="r">niLoanAmt &lt;- 100000; niLoanTermYears &lt;- 30; siLoanInterest &lt;- 5
 months &lt;- as.numeric(niLoanTermYears) * 12
 yearlyInterest &lt;- as.numeric(siLoanInterest)
 monthlyInterest &lt;- yearlyInterest / 12 / 100
 loanAmt &lt;- as.numeric(niLoanAmt)
 tmp1 &lt;- (1 + monthlyInterest)^months
 monthlyMortgage &lt;- loanAmt * (monthlyInterest * tmp1)/ (tmp1 - 1)
-
 monthlyMortgage
 </code></pre>
 

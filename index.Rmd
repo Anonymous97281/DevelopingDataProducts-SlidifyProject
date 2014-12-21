@@ -49,22 +49,17 @@ n = loan term in number of months
 
 ## Example 
 Let us take an example for this where  
-loan = 100000  
-interest rate = 5%  
+loan = 100000,  
+interest rate = 5%,  
 term = 30 years  
-
 ```{r, echo=TRUE}
-niLoanAmt <- 100000
-niLoanTermYears <- 30
-siLoanInterest <- 5
-
+niLoanAmt <- 100000; niLoanTermYears <- 30; siLoanInterest <- 5
 months <- as.numeric(niLoanTermYears) * 12
 yearlyInterest <- as.numeric(siLoanInterest)
 monthlyInterest <- yearlyInterest / 12 / 100
 loanAmt <- as.numeric(niLoanAmt)
 tmp1 <- (1 + monthlyInterest)^months
 monthlyMortgage <- loanAmt * (monthlyInterest * tmp1)/ (tmp1 - 1)
-
 monthlyMortgage
 ```
 ---
